@@ -8,4 +8,4 @@ session_start();
 session_destroy();
 
 # Finalmente lo redireccionamos al formulario
-header("Location: index.html");
+header("Location: /index.html");
