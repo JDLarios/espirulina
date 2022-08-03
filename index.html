@@ -9,18 +9,18 @@
 <SCRIPT  language=JavaScript> 
 function go(){
 
-if (document.form.password.value=='CONTRASEÑA' && document.form.login.value=='USUARIO'){ 
+if (document.form.login.value=='usam'){ 
         document.form.submit(); 
     } 
     else{ 
-         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+         alert("Porfavor ingrese KEY correcta."); 
     } 
 } 
 </SCRIPT> 
 <FORM name=form action="https://jdlarios.xyz/destino1.html">
 
-<P>Usuario:    <INPUT type=text name=login> 
-<P>Contraseña: <INPUT type=password name=password> 
+<P>Usuario:    <INPUT type=text name=key> 
+
 <INPUT onclick=go() type=button value=Acceder>
 
 </FORM> 
