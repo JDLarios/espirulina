@@ -9,7 +9,7 @@ session_start();
 # Recomiendo: https://parzibyte.me/blog/2018/08/09/isset-vs-empty-en-php/
 if (empty($_SESSION["usuario"])) {
     # Lo redireccionamos al formulario de inicio de sesión
-    header("Location: index.html");
+    header("Location: /index.html");
     # Y salimos del script
     exit();
 }
@@ -22,4 +22,4 @@ echo "Soy un mensaje secreto";
     Hola mundo, soy un párrafo HTML que solamente pueden ver los usuarios logueados
 </p>
 <!-- Y aprovechando, le indicamos al usuario un enlace para salir-->
-<a href="logout.php">Cerrar sesión</a>
+<a href="/logout.php">Cerrar sesión</a>
