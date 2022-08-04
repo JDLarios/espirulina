@@ -1,28 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JD Larios 1</title>
+<!DOCTYPE html>
+
+<html>
+<head> 
+	<meta charset="UTF-8">
+
+<title>Larios</title>
+<link rel="stylesheet" href="styleindex.css">
+
 </head>
 
 <body>
-<SCRIPT  language=JavaScript> 
+<div class="box">
+<h1>Key:</h1>
+
+<script language="JavaScript"> 
 function go(){
 
 if (document.form.key.value=='usam'){ 
         document.form.submit(); 
     } 
     else{ 
-         alert("Porfavor ingrese KEY correcta."); 
+         alert("KEY incorrecta. Vuelva a intentarlo."); 
     } 
 } 
-</SCRIPT> 
-<FORM name=form action="https://jdlarios.xyz/destino1.html">
+</script>   
 
-<P>Usuario:    <INPUT type=text name=key> 
+<form name="form" action="https://jdlarios.xyz/destino1.html">
 
-<INPUT onclick=go() type=button value=Acceder>
+<input type="text" name="key" placeholder="Escriba aquí..."> 
 
-</FORM> 
+<input onclick="go()" type="button" value="Acceder">
+
+</form> 
+
 </body>
 </html>
