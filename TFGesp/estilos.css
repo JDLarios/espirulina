@@ -39,6 +39,16 @@
 		line-height:100px;
 		cursor: default;
 	}
+
+	.container .btn-menu, .seccioname{
+		float: left;
+		line-height:100px;
+		cursor: default;
+		color: #fff;
+		font-size: 10px;
+	}
+
+
 	.container .btn-menu label{
 		color: #fff;
 		font-size: 25px;
