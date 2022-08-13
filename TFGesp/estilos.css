@@ -30,7 +30,7 @@
 		box-shadow: 0px 1px 12px rgba(0,0,0,0.4);
 	}
 	.container{
-		width: 92%;
+		width: 90%;
 		max-width: 1200px;
 		margin: auto;
 	}
@@ -40,7 +40,8 @@
 		cursor: default;
 	}
 
-	.container .btn-menu, .seccioname{
+
+.container .btn-menu, .seccioname{
 		float: left;
 		line-height:100px;
 		cursor: default;
@@ -218,7 +219,7 @@ input[type="submit"]:hover
 .copyright{
 
 	position: absolute;
-	top: 90%;
+	top: 92%;
 	right: 5%;
 	font-size: 14px;
 	
@@ -253,7 +254,6 @@ input[type="submit"]:hover
 	
 }
 /*fin visor de pdf*/
-
 
 
 
