@@ -23,7 +23,7 @@
 	/*Estilos para el encabezado*/
 	.header{
 		width: 100%;
-		height: 70px;
+		height: 42px;
 		background: #101922;
 		position: fixed;
 		top: 0;left: 0;
@@ -32,7 +32,8 @@
 	.container{
 		width: 90%;
 		max-width: 1200px;
-		margin: auto;
+		margin-top: -25px;
+		margin-left: 5%;
 	}
 	.container .btn-menu, .logo{
 		float: left;
@@ -125,7 +126,7 @@
 	}
 	.cont-menu nav a:hover{
 		border-left: 5px solid #f38c12;
-		background: #34495E;
+		background: #101922;
 	}
 	.cont-menu label{
 		position: absolute;
@@ -219,7 +220,7 @@ input[type="submit"]:hover
 .copyright{
 
 	position: absolute;
-	top: 92%;
+	top: 90%;
 	right: 5%;
 	font-size: 14px;
 	
@@ -237,23 +238,21 @@ input[type="submit"]:hover
 
 /*fin del footer*/
 
-/*Inicia visor de pdf*/
 
 .pdfview {
     /* Centrado */
     margin: auto;
-	margin-top: 6%;
-	color: #F2F3F4;
+	margin-top: 4%;
     display: block;
     /* Tamaño */
-    width: 860px;
-    height: 85vh;
+    width: 850px;
+    height: 90vh;
     /* Mejorar aspecto */
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	
 }
-/*fin visor de pdf*/
+
 
 
 
