@@ -1,1 +1,168 @@
-pronto
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset='utf-8' />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="../gneral/icons/dvdisasterfavicon.ico" type="image/x-icon">
+	<title>JD | Calendario</title>
+<link href='https://qyfusam.000webhostapp.com/lib/main.css' rel='stylesheet' />
+<link href='estilos_calend.css' rel='stylesheet' />
+<script src='https://qyfusam.000webhostapp.com/lib/main.js'></script>
+<script src='https://qyfusam.000webhostapp.com/lib/locales-all.js'></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var initialLocaleCode = 'es';
+    var localeSelectorEl = document.getElementById('locale-selector');    
+	var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialDate: '2020-09-12',
+locale: initialLocaleCode,      
+initialView: 'dayGridMonth',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      height: 'auto',
+	weekNumbers: true,
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      selectable: true,
+      selectMirror: true,
+      nowIndicator: true,
+      events: [
+        {
+          title: 'All Day Event',
+          start: '2020-09-01',
+        },
+        {
+          title: 'Long Event',
+          start: '2020-09-07',
+          end: '2020-09-10'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-09-09T16:00:00'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-09-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2020-09-11',
+          end: '2020-09-13'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-09-12T10:30:00',
+          end: '2020-09-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2020-09-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-09-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2020-09-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2020-09-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2020-09-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2020-09-28'
+        },
+
+
+// Inicia zona para agregar eventos
+
+        {
+          title: 'Parciales A1',
+          start: '2022-08-29',
+          end: '2022-09-03'
+        },
+
+        {
+          title: 'Parciales A2',
+          start: '2022-10-17',
+          end: '2022-10-22'
+        },
+
+        {
+          title: 'Parciales A3',
+          start: '2022-12-05',
+          end: '2022-12-10'
+        }
+
+
+// Finaliza zona para agregar eventos
+
+
+
+
+
+      ]
+    });
+
+    calendar.render();
+
+
+
+
+
+  });
+
+</script>
+<style>
+
+  body {
+    margin: 0px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto; margin-top: 20px;
+  }
+
+</style>
+</head>
+<body>
+
+	<div class="header">
+			<nav class="menu">				
+			<a href="javascript:history.back()">◄ Regresar</a>
+			<a href="#">|</a>
+			<a href="https://www.usam.edu.sv/universidad/calendario-academico/calendario/eventospormes/">Calendario USAM ►</a>		
+
+</nav>
+			
+
+
+
+	</div>
+
+<div id='calendar'></div>	
+
+  
+
+</body>
+</html>
+
