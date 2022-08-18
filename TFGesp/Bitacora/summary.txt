@@ -1,17 +1,14 @@
 -------------------------------------
 SUMMARY jdlarios.xyz
 -------------------------------------
-Domain Name: JDLARIOS.XYZ
-Registry Domain ID: D315299932-CNIC
-Registrar WHOIS Server: whois.namecheap.com
-Registrar URL: https://namecheap.com
-Updated Date: 2022-08-01T14:19:35.0Z
-Creation Date: 2022-08-01T14:19:28.0Z
-Registry Expiry Date: 2023-08-01T23:59:59.0Z
-Registrar: Namecheap
-Registrar IANA ID: 1068
-Domain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited
-Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
-Registrant Organization: Privacy service provided by Withheld for Privacy ehf
-Registrant State/Province: Capital Region
-Registrant Country: IS
+
+1. integracion DomainName/github:
+A Records (@):
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+
+2. Certificado de seguridad: Aplicado:
+HTTPS provides a layer of encryption that prevents others from snooping on or tampering with traffic to your site.
+When HTTPS is enforced, your site will only be served over HTTPS.
