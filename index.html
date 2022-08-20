@@ -1,77 +1,295 @@
-<!doctype html>
-
-<html lang="es">
-<head> 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-<link rel="shortcut icon" href="gneral/icons/dvdisasterfavicon.ico" type="image/x-icon">
-<title>JD</title>
-<link rel="stylesheet" href="stylehome_purple.css">
-
-</head>
-
-<body>
-
-
-<!-- inicia seccion caja de búsqueda -->
-
-<div class="box">
-<h1>Key:</h1>
-
-<form name="form">
-
-<input type="text" id="idkey" name="key" placeholder="Escriba aquí..."> 
-
-<input onclick="go()" type="submit" value="Acceder">
-
-</form> 
-
- <!-- inicia seccion para agregar keys enlaces general -->
-
-<script language="JavaScript"> 
-function go() {
-var keyin = document.getElementById("idkey").value;
-
-switch(keyin){
-
-	case 'google': case 'goo':case 'buscar': window.open("https://www.google.com");break;
-	
-	case 'usam': case 'Usam': case 'USAM': window.open("https://www.usam.edu.sv/");break;
-	case 'tesis': case 'Tesis': case 'TESIS': window.open("https://jdlarios.xyz/TFGesp/index_TFGsite.html");break;
-
-	case 'teams': case 'Teams':case 'TEAMS': window.open("https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile&client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&redirect_uri=https%3A%2F%2Fteams.microsoft.com%2Fgo&state=eyJpZCI6Ijg2ZTg5YzE4LTgxODctNGM4MC1hOWZkLTM2ODllNDZlMTJhNiIsInRzIjoxNjU5ODMwODk0LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=888dd599-01cb-4fcb-9acb-4c34f8f3ff22&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.3.4&client-request-id=ae3e5dee-6838-47e2-947e-bb4e95add994&response_mode=fragment");break;
-	
-	case 'clima': case 'Clima': case 'CLIMA': window.open("https://wttr.in/");break;
-	case '5': window.open("");break;
-		
-	case 'CAL': case 'cal': case 'Cal': case 'calendario': case 'Calendario': case 'CALENDARIO': window.open("https://www.usam.edu.sv/universidad/calendario-academico/calendario/eventospormes/");break;
-	case '5': window.open("");break;		
-	
-	default: alert(keyin + ": Key no registrada.");
-}}
-
-</script>  
-</div>
-
-<!-- finaliza seccion para agregar keys enlaces general -->
-<!-- finaliza seccion caja de búsqueda -->
-
-
-<footer>
-<div class="box__copyright">
-            
-<p> 
-<script type="text/javascript">
-copyright=new Date();
-update=copyright.getFullYear();
-document.write("©" + update + " " );
-</script><b>JDLarios.xyz</b>
-</p>
-	
-</div>
-</footer>
-
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="gneral/icons/dvdisasterfavicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <title>JD-INDEX</title>
+  </head>
+  <canvas id="c"></canvas>
+  <div class="main-container">
+    <progress id="progress" value="1" max="100"></progress>
+    <textarea id="textArea" disabled></textarea>
+    <form id="submitForm">
+      <input id="myInput" type="text" disabled="true">
+    </form>
+  </div>
+  <script src="script.js"></script>
+  </body>
 </html>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: lime;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  body {
+    background: black;
+  }
+
+  .main-container {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    width: 80%;
+    height: 50%;
+  }
+
+  textarea {
+    padding: 4px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    resize: none;
+    box-shadow: none;
+  }
+
+  textarea[disabled] {
+    -ms-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    background: #000;
+  }
+
+  input[type=text] {
+    padding: 4px;
+    width: 100%;
+    -ms-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    background: #000;
+  }
+
+  input[type=text]::-ms-clear {
+    display: none;
+  }
+
+  input [contenteditable] {
+    caret-color: lime;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  progress[value] {
+    width: 38%;
+    height: 15px;
+    margin-left: 4px;
+    margin-top: 4px;
+    background-color: lime;
+  }
+
+  canvas {
+    display: block;
+  }
+
+
+</style>
+<script>
+  let nothack = false;
+  const input = document.querySelector("#myInput");
+  const submitForm = document.querySelector("#submitForm");
+  const progressBar = document.querySelector("#progress");
+  window.onload = function() {
+    goProgress();
+  };
+  const textArea = document.querySelector("#textArea");
+  textArea.value = `Connecting...`;
+  const MSO = function() {
+    progressBar.style.visibility = "visible";
+    input.disabled = true;
+    input.value = "";
+    textArea.value = `Connecting...`;
+    progressBar.interval = setInterval(increaseVal3, 20, progressBar);
+  };
+  const increaseVal3 = function(progressBar) {
+    if (progressBar.value < 100) {
+      progressBar.value = progressBar.value + 1;
+    } else {
+      progressBar.style.visibility = "hidden";
+      clearInterval(progressBar.interval);
+      progressBar.classList.add("hidden");
+      clearConsole();
+      input.disabled = false;
+      input.focus();
+      progressBar.value = 0;
+      textArea.value += "DONE!";
+    }
+  };
+  const Connect = function() {
+    nothack = true;
+    progressBar.style.visibility = "visible";
+    input.disabled = true;
+    input.value = "";
+    textArea.value = `Connecting...`;
+    progressBar.interval = setInterval(increaseVal2, 20, progressBar);
+  };
+  const increaseVal2 = function(progressBar) {
+    if (progressBar.value < 100) {
+      progressBar.value = progressBar.value + 1;
+    } else {
+      progressBar.style.visibility = "hidden";
+      clearInterval(progressBar.interval);
+      progressBar.classList.add("hidden");
+      clearConsole();
+      input.disabled = false;
+      input.focus();
+      progressBar.value = 0;
+      textArea.value += "Connected! Now, type /hack  to se what to hack!)";
+}
+  };
+  const goProgress = function() {
+    input.disabled = true;
+    input.value = "";
+    textArea.value = `Connecting...`;
+    progressBar.interval = setInterval(increaseVal, 20, progressBar);
+  };
+  const increaseVal = function(progressBar) {
+    if (progressBar.value < 100) {
+      progressBar.value = progressBar.value + 1;
+    } else {
+      progressBar.style.visibility = "hidden";
+      clearInterval(progressBar.interval);
+      progressBar.classList.add("hidden");
+      clearConsole();
+      input.disabled = false;
+      input.focus();
+      progressBar.value = 0;
+
+	
+textArea.value+="\n";   
+      var today = new Date();
+      var date = today.getFullYear();
+      textArea.value += "©" + date + "-JDLarios.xyz Is not a Corporation. All Easter Eggs reserved.";
+
+
+textArea.value+="\n";
+textArea.value+="\n";   
+textArea.value += "Index Page:";
+textArea.value+="\n";   
+textArea.value += "Starting udev:...................................( OK )";
+ textArea.value+="\n";   
+textArea.value += "Mount devpts:....................................( OK )";
+ textArea.value+="\n";   
+textArea.value += "Configure kernel options.........................( OK )";
+ textArea.value+="\n";   
+textArea.value += "Setting clock: 1660929959332.....................( OK )";
+ textArea.value+="\n";   
+textArea.value += "SYSTEM BOOT COMPLETE.............................( OK )";
+ textArea.value+="\n";   
+var aleatorio = Math.random();
+textArea.value+="\n";
+      textArea.value += "Connected! Type 'help' for the list of all avaiable commands.";
+textArea.value+="\n";
+
+
+      var today = new Date();
+      var date = today.getFullYear() + '-' + (today.getMonth()) + '-' + today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      textArea.value += "\n" + date + "  " + time;
+ textArea.value+="\n";
+ textArea.value+="guest@jdlarios.xyz:~$ ";
+
+
+
+    }
+  };
+  const commandListtohack = [
+  "",
+  "Things to hack:",
+  "/mso - Marius's YouTube channel",
+  ];
+
+  const commandList = [
+  "",
+  "Available commands:",
+  "help  - List all commands.",
+  "/clear - Clear screen.",
+  "/linux26 - go to virtual linux26.",
+  
+  "/wttr - the weather report.",
+  
+  "/jsuix - go to js/uix terminal",
+  
+
+  ];
+
+  const AllCommands = function() {
+    const arrJoin = commandList.join("\n");
+    textArea.value += arrJoin;
+    input.value = "";
+  };
+  const clearConsole = function() {
+    textArea.value = "";
+    input.value = "";
+  };
+  submitForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    if (input.value === "/clear") {
+      clearConsole();
+    } else if (input.value.includes("cn.time.")) {
+      Time(input.value);
+    } else if (input.value === "help") {
+      AllCommands();
+
+/* start edit keys*/
+
+    } else if (input.value === "tesis") {
+      window.open("https://www.jdlarios.xyz/TFGesp/index_TFGsite.html","_self");
+
+    } else if (input.value === "exit") {
+      window.close();
+
+    } else if (input.value === "/linux26") {
+      window.open("https://copy.sh/v86/?profile=linux26","_self");
+
+    } else if (input.value === "/wttr") {
+      window.open("https://wttr.in/","_self");
+
+    } else if (input.value === "/jsuix") {
+      window.open("https://www.masswerk.at/jsuix/index.html","_self");
+
+    } else if (input.value === "usam") {
+      window.open("https://www.usam.edu.sv","_self");
+    
+
+    } else if (input.value === "cal") {
+      window.open("https://www.usam.edu.sv/universidad/calendario-academico/calendario/eventospormes/","_self");
+
+    } else if (input.value === "teams") {
+      window.open("https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=openid%20profile&client_id=5e3ce6c0-2b1f-4285-8d4b-75ee78787346&redirect_uri=https%3A%2F%2Fteams.microsoft.com%2Fgo&state=eyJpZCI6Ijg2ZTg5YzE4LTgxODctNGM4MC1hOWZkLTM2ODllNDZlMTJhNiIsInRzIjoxNjU5ODMwODk0LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=888dd599-01cb-4fcb-9acb-4c34f8f3ff22&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.3.4&client-request-id=ae3e5dee-6838-47e2-947e-bb4e95add994&response_mode=fragment","_self");
+    
+
+}
+
+/* end edit keys*/
+
+
+
+ else {
+      textArea.value += "\nERROR: Unknown command! Type 'help' for list of commands.";
+      textArea.value += "\n" + input.value;
+      input.value = "";
+      textArea.value += "\n" + input.value;
+
+
+    }
+    textArea.scrollTop = textArea.scrollHeight;
+  });
+  input.addEventListener("input", function(e) {
+    input.value = input.value.toLowerCase();
+  });
+</script>
+
